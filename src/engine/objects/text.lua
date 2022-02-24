@@ -237,10 +237,10 @@ function Text:processModifier(node)
         elseif node.arguments[1] == "reset" then
             -- They want to reset the color.
             self.state.color = {1, 1, 1, 1}
-        elseif #node.arguments[1] == 6 then
+        elseif utf8String.len(node.arguments[1]) == 6 then
             -- It's 6 letters long, assume hashless hex
             self.state.color = Utils.hexToRgb("#" .. node.arguments[1])
-        elseif #node.arguments[1] == 7 then
+        elseif utf8String.len(node.arguments[1]) == 7 then
             -- It's 7 letters long, assume hex
             self.state.color = Utils.hexToRgb(node.arguments[1])
         end
