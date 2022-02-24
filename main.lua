@@ -16,6 +16,7 @@ require ("src.utils.graphics")
 Utils = require("src.utils.utils")
 CollisionUtil = require("src.utils.collision")
 Draw = require("src.utils.draw")
+utf8String = require("src.utils.utf8string")
 
 Kristal = {}
 Kristal.Config = {}
@@ -458,8 +459,8 @@ function Kristal.errorHandler(msg)
     local anim_index = 1
     math.randomseed(os.time()) -- seed!
     local starwalker_error = (math.random(100) <= 5) -- 5% chance for starwalker
-    local font = love.graphics.newFont("assets/fonts/main.ttf", 32, "mono")
-    local smaller_font = love.graphics.newFont("assets/fonts/main.ttf", 16, "mono")
+    local font = love.graphics.newFont("assets/fonts/main.ttf", 24, "mono")
+    local smaller_font = love.graphics.newFont("assets/fonts/main.ttf", 12, "mono")
 
     local starwalker, starwalkertext, banana_anim
 

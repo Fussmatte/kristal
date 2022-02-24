@@ -30,7 +30,7 @@ function ModButton:init(name, width, height, mod)
 
     -- temporary
     self.font = Assets.getFont("main")
-    self.subfont = Assets.getFont("main", 16)
+    self.subfont = Assets.getFont("main", 12)
 end
 
 function ModButton:setName(name)

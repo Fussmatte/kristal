@@ -89,7 +89,7 @@ function DialogueText:playTextSound(current_node)
         return
     end
 
-    local no_sound = {"\n", " ", "^", "!", ".", "?", ",", ":", "/", "\\", "|", "*"}
+    local no_sound = {"\n", " ", "^", "!", ".", "?", ",", ":", "/", "\\", "|", "*", "’", "”", "‘", "“", "«", "»", "„"}
 
     if (Utils.containsValue(no_sound, current_node.character)) then
         return

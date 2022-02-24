@@ -63,7 +63,7 @@ function Menu:enter()
 
     -- Assets required for the menu
     self.menu_font = Assets.getFont("main")
-    self.small_font = Assets.getFont("main", 16)
+    self.small_font = Assets.getFont("main", 12)
 
     -- Preview fading stuff
     self.background_fade = 1
