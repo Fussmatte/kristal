@@ -1732,7 +1732,7 @@ function Battle:debugPrintOutline(string, x, y, color)
 end
 
 function Battle:drawDebug()
-    local font = Assets.getFont("main", 16)
+    local font = Assets.getFont("main", 12)
     love.graphics.setFont(font)
 
     love.graphics.setColor(1, 1, 1, 1)

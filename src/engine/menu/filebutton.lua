@@ -12,7 +12,7 @@ function FileButton:init(list, id, data, x, y, width, height)
     self.selected = false
 
     self.font = Assets.getFont("main")
-    self.subfont = Assets.getFont("main", 16)
+    self.subfont = Assets.getFont("main", 12)
 
     self.prompt = nil
     self.choices = nil

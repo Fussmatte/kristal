@@ -102,14 +102,15 @@ function Text:textToNodes(input_string)
     local nodes = {}
     local display_text = ""
     local i = 1
-    while i <= #input_string do
-        local current_char = input_string:sub(i,i)
+    while i <= utf8String.len(input_string) do
+        --local current_char = input_string:sub(i,i)
+        local current_char = utf8String.sub(input_string,i,i)
         local leaving_modifier = false
         if current_char == "[" then  -- We got a [, time to see if it's a modifier
             local j = i + 1
             local current_modifier = ""
-            while j <= #input_string do
-                if input_string:sub(j, j) == "]" then -- We found a bracket!
+            while j <= utf8String.len(input_string) do
+                if utf8String.sub(input_string,j, j) == "]" then -- We found a bracket!
                     local old_i = i
                     i = j -- Let's set i so the modifier isn't processed as normal text
 
@@ -135,10 +136,10 @@ function Text:textToNodes(input_string)
                         i = old_i
                     end
 
-                    current_char = input_string:sub(i, i) -- Set current_char to the new value
+                    current_char = utf8String.sub(input_string, i, i) -- Set current_char to the new value
                     break
                 else
-                    current_modifier = current_modifier .. input_string:sub(j, j)
+                    current_modifier = current_modifier .. utf8String.sub(input_string,j, j)
                 end
                 j = j + 1
             end
@@ -280,7 +281,7 @@ function Text:drawChar(node, state, use_color)
         end
     end
 
-    local x, y = state.current_x + state.offset_x, state.current_y + state.offset_y
+    local x, y = state.current_x + state.offset_x, (state.current_y + state.offset_y)-2
     love.graphics.setFont(font)
 
     -- The base color, either the draw color or (1,1,1,1) depending on
@@ -306,7 +307,7 @@ function Text:drawChar(node, state, use_color)
         love.graphics.print(node.character, x+2, y+2)
         love.graphics.setColor(mr,mg,mb,ma)
         love.graphics.print(node.character, x, y)
-    elseif state.style == "dark" then
+    elseif state.style == "dark" and width ~= 0 then
         local canvas = Draw.pushCanvas(width, height)
         love.graphics.setColor(1, 1, 1)
         love.graphics.print(node.character)

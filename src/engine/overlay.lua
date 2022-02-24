@@ -20,7 +20,7 @@ function Overlay:init()
         love.graphics.newImage("assets/sprites/ui/loading_5.png"),
     }
 
-    self.font = love.graphics.newFont("assets/fonts/main.ttf", 32)
+    self.font = love.graphics.newFont("assets/fonts/main.ttf", 24)
 
     self.quit_alpha = 0
     self.load_alpha = 0
