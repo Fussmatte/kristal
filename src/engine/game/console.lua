@@ -6,7 +6,7 @@ function Console:init()
 
     self.height = 12
 
-    self.font_size = 16
+    self.font_size = 12
     self.font_name = "main"
 
     self.font = Assets.getFont(self.font_name, self.font_size)

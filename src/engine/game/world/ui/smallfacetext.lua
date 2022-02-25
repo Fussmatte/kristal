@@ -10,7 +10,7 @@ function SmallFaceText:init(text, face, x, y, actor)
     self:addChild(self.sprite)
 
     self.text = Text("", 40+70, 10)
-    self.text.font_size = 16
+    self.text.font_size = 12
     self.text.inherit_color = true
     self.text:setText(text)
     self:addChild(self.text)
